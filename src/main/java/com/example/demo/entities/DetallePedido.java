@@ -30,8 +30,11 @@ public class DetallePedido {
     @JoinColumn(name = "id_pedido",nullable = false)
     @NotNull(message = "El id_pedido es obligatorio")
     private Pedido pedido;
-
-    // private Producto Producto;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_producto", nullable = false)
+    @NotNull(message= "El id_producto es oligatorio")
+    private Productos Producto;
 
     @Column(nullable = false)
     @Min(value =  1, message="La cantidad debe ser al menos 1")
