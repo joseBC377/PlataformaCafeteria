@@ -37,11 +37,11 @@ private BigDecimal total;
 private String metodo_pago;
 
 @Column(nullable = false)
-@NotBlank(message = "La fecha de pago es obligatoria")
+@NotNull(message = "La fecha de pago es obligatoria")
 private LocalDateTime fecha_pago;
 
 @ManyToOne
 @JoinColumn(name = "id_pedido",nullable = false)
-@NotBlank(message= "El id de pedido es obligatorio")
+@NotNull(message= "El id de pedido es obligatorio")
 private Pedido pedido;
 }
