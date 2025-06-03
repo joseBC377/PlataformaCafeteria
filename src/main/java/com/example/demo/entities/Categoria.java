@@ -1,14 +1,9 @@
 package com.example.demo.entities;
-
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -33,7 +28,4 @@ public class Categoria {
     @Pattern(regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$", message = "No puede contener números")
     @Size(min = 2, max = 100, message = "Mínimo 2 y máximo 100 caracteres")
     private String nombre;
-
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    private List<SubCategoria> subcategorias;   
 }

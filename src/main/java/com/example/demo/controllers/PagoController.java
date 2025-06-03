@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 public class PagoController {
     public PagoService service;
 
-    @GetMapping("lista/")
+    @GetMapping("lista")
     public List<Pago> selectAll() {
         return service.selectAll();
     }

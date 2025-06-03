@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 public class DetallePedidoController {
     public DetallePedidoService service;
 
-    @GetMapping("lista/")
+    @GetMapping("lista")
     public List<DetallePedido> selectAll() {
         return service.selectAll();
     }
