@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS pago (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_pedido INT NOT NULL,
     metodo_pago ENUM('tarjeta', 'efectivo', 'transferencia') NOT NULL,
-    monto_total DECIMAL(10, 2) NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
     fecha_pago DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_pedido) REFERENCES pedido(id) ON DELETE CASCADE
 );
