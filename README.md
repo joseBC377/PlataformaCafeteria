@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS pedido (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     fecha_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
-    estado ENUM('pendiente', 'confirmado', 'en_proceso', 'entregado', 'cancelado') DEFAULT 'pendiente',
     FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON DELETE CASCADE
 );
 
