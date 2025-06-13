@@ -96,16 +96,15 @@ CREATE TABLE IF NOT EXISTS contactenos (
 
 ```sql
 -- USUARIOS
-INSERT INTO usuario (nombre, apellido, correo, telefono, contrasena, rol)
-VALUES 
-('Ana', 'Ramírez', 'ana@correo.com', '0987654321', 'contrasena123', 'cliente'),
+INSERT INTO usuario (nombre, apellido, correo, telefono, contrasena, rol) 
+VALUES  
+('Ana', 'Ramírez', 'ana2@correo.com', '0987654321', 'contrasena123', 'cliente'),
 ('Luis', 'Pérez', 'luis@correo.com', '0976543210', 'contrasena456', 'admin');
-
 -- CATEGORÍAS
-INSERT INTO categoria (nombre, descripcion)
+INSERT INTO categoria (nombre)
 VALUES 
-('Bebidas Calientes', 'Cafés, infusiones y más'),
-('Postres', 'Dulces y repostería artesanal');
+('Bebidas Calientes'),
+('Postres');
 
 -- SUBCATEGORÍAS
 INSERT INTO subcategoria (id_categoria, nombre)
@@ -116,34 +115,34 @@ VALUES
 (2, 'Galletas');
 
 -- PRODUCTOS
-INSERT INTO productos (nombre, descripcion, precio, imagen, id_categoria, id_subcategoria)
-VALUES 
-('Capuchino', 'Café espumoso con leche', 3.50, 'capuchino.jpg', 1, 1),
-('Té Verde', 'Infusión natural y saludable', 2.00, 'te_verde.jpg', 1, 2),
-('Brownie', 'Delicioso brownie de chocolate', 2.50, 'brownie.jpg', 2, 4),
-('Tarta de Queso', 'Tarta de queso casera', 3.00, 'tarta_queso.jpg', 2, 3);
+INSERT INTO productos (nombre, descripcion, precio, imagen, id_subcategoria)
+VALUES  
+('Capuchino', 'Café espumoso con leche', 3.50, 'capuchino.jpg', 1), 
+('Té Verde', 'Infusión natural y saludable', 2.00, 'te_verde.jpg', 2), 
+('Brownie', 'Delicioso brownie de chocolate', 2.50, 'brownie.jpg', 4), 
+('Tarta de Queso', 'Tarta de queso casera', 3.00, 'tarta_queso.jpg', 3);
 
 -- PEDIDOS
-INSERT INTO pedido (id_usuario, estado)
-VALUES 
-(1, 'pendiente'),
-(1, 'confirmado');
+INSERT INTO pedido (id_usuario, fecha)  
+VALUES  
+(1, CURDATE()),  
+(1, CURDATE());
 
 -- DETALLE PEDIDO
-INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, subtotal)
+INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_unitario)
 VALUES 
 (1, 1, 2, 7.00),
 (1, 3, 1, 2.50),
 (2, 2, 1, 2.00);
 
 -- PAGOS
-INSERT INTO pago (id_pedido, metodo_pago, estado_pago, monto_total)
+INSERT INTO pago (id_pedido, metodo_pago, total,fecha_pago)
 VALUES 
-(1, 'tarjeta', 'pagado', 9.50),
-(2, 'efectivo', 'pendiente', 2.00);
+(1, 'tarjeta', 9.50, NOW()),
+(2, 'efectivo', 2.00,NOW());
 
 -- CONTACTENOS
-INSERT INTO contactenos (nombre, correo, mensaje)
+INSERT INTO contactenos (nombre,apellido, correo, mensaje)
 VALUES 
-('Carlos Mena', 'carlos@correo.com', 'Excelente atención y productos!');
+('Carlos','Mena ','carlos@correo.com', 'Excelente atención y productos!');
 ```
