@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Usuario;
-import com.example.demo.repositories.Usuariorepository; //✅ nombre correcto
+import com.example.demo.repositories.Usuariorepository; 
 
 import lombok.AllArgsConstructor;
 
@@ -48,6 +48,6 @@ public class UsuarioService {
         repository.deleteById(id);
     }
     public Usuario findByCorreo(String correo){
-        return repository.findByCorreo(correo);
+        return repository.findByCorreo(correo).orElseThrow();
     }
 }
