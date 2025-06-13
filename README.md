@@ -47,9 +47,7 @@ CREATE TABLE IF NOT EXISTS productos (
     descripcion TEXT,
     precio DECIMAL(10, 2) NOT NULL,
     imagen VARCHAR(255),
-    id_categoria INT NOT NULL,
     id_subcategoria INT,
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id) ON DELETE CASCADE,
     FOREIGN KEY (id_subcategoria) REFERENCES subcategoria(id) ON DELETE SET NULL
 );
 
