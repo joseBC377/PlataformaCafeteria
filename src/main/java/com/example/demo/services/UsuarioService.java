@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Usuario;
-import com.example.demo.repositories.Usuariorepository; //✅ nombre correcto
+import com.example.demo.repositories.Usuariorepository; 
 
 import lombok.AllArgsConstructor;
 
@@ -46,5 +46,8 @@ public class UsuarioService {
             throw new RuntimeException("No se puede eliminar, el usuario con id " + id + " no existe");
         }
         repository.deleteById(id);
+    }
+    public Usuario findByCorreo(String correo){
+        return repository.findByCorreo(correo).orElseThrow();
     }
 }
