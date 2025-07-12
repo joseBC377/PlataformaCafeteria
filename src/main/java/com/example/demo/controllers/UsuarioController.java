@@ -1,8 +1,5 @@
 package com.example.demo.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.entities.Usuario;
 import com.example.demo.services.UsuarioService;
 
@@ -52,4 +49,16 @@ public class UsuarioController {
         service.deleteUsuario(id);
         return ResponseEntity.ok("Usuario eliminado correctamente. ID: " + id);
     }
+
+    
+    @GetMapping("/publico")
+    public String paginaPublica() {
+        return "Pagina publica";
+    }
+
+    @GetMapping("/privado")
+    public String paginaPrivada() {
+        return "Hola ingresastes a la pagina privada";
+    }
+
 }

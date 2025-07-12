@@ -49,7 +49,8 @@ public class AuthenticationService {
         String userEmail = jwtService.extractUsername(request.refreshToken());
         if (userEmail != null) {
             var user = usuariorepository.findByCorreo(userEmail).orElseThrow();
-            if (jwtService.isTokenValid(request.refreshToken(), user)) {
+
+            if (jwtService.isTookenValid(request.refreshToken(), user)) {
                 var accessToken = jwtService.generateToken(user);
                 return new AuthenticationResponse(accessToken, request.refreshToken());
             }

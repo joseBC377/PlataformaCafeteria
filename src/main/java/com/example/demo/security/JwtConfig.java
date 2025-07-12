@@ -19,17 +19,20 @@ public class JwtConfig {
     private String tokenPrefix;
     private Integer tokenExpirationAfterDays;
     private Integer refreshTokenExpirationAfterDays;
-    
-    //Obtencion de expiracion en milisegundos
-    public long getTokenExpirationInMillis(){
-        return tokenExpirationAfterDays*24L*60*60*1000;
+
+    // Obtencion de expiracion en milisegundos
+    public long getTokenExpirationInMillis() {
+        return tokenExpirationAfterDays * 24L * 60 * 60 * 1000;
     }
-    //refresco de expiracion del token
-    public long getRefreshTokenExpirationInMillis(){
-        return refreshTokenExpirationAfterDays*24L*60*60*1000;
+
+    // refresco de expiracion del token
+    public long getRefreshTokenExpirationInMillis() {
+        return refreshTokenExpirationAfterDays * 24L * 60 * 60 * 1000;
     }
-    @Bean
-    SecretKey secretKey(){
+
+    @Bean(name = "jwtSecretKey")
+    public SecretKey secretKey() {
         return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
     }
+
 }
