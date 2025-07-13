@@ -1,7 +1,8 @@
 package com.example.demo.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+// import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,7 +39,7 @@ private String metodo_pago;
 
 @Column(nullable = false)
 @NotNull(message = "La fecha de pago es obligatoria")
-private LocalDateTime fecha_pago;
+private LocalDate fecha_pago;
 
 @ManyToOne
 @JoinColumn(name = "id_pedido",nullable = false)

@@ -27,7 +27,7 @@ public class ProductosController {
     
     // Obtener todos los productos
     @GetMapping("lista")
-    public List<Productos> selectAllUsers() {
+    public List<Productos> selectAll() {
         return service.selectAll();
     }
 
