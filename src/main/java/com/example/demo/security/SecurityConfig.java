@@ -38,6 +38,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/auth/**").permitAll() // Ingresar sin token
+                        .requestMatchers("/uploads/**").permitAll()   // Ingresar sin token
                         .requestMatchers("/api/usuario/**").hasAuthority("ADMIN")
                         //.requestMatchers("/api/usuario/publico", "/api/usuario/**").hasAuthority("CLIENT")
                         // Cualquier otra ruta no mencionada necesita que el usuario sea autenticado
