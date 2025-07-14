@@ -34,17 +34,16 @@ public class PagoController {
     public Pago selectPagoId(@PathVariable Integer id) {
         return service.sellectById(id);
     }
+@PostMapping("insertar")
+public Pago insertPago(@RequestBody Pago pago) {
+    return service.insertPago(pago);
+}
 
-    @PostMapping("insertar")
-    public Pago insertPago(@RequestBody Pago pago) {
-        return service.insertPago(pago);
-    }
 
-    @PutMapping("actualizar/{id}")
-    public Pago updatePago(@PathVariable Integer id, @RequestBody Pago pago) {
-        pago.setId(id);
-        return service.updatePago(id, pago);
-    }
+   @PutMapping("/actualizar/{id}")
+public Pago updatePago(@PathVariable Integer id, @RequestBody Pago pago) {
+    return service.updatePago(id, pago);
+}
 
     @DeleteMapping("eliminar/{id}")
     public ResponseEntity<String> deletePago(@PathVariable Integer id) {
