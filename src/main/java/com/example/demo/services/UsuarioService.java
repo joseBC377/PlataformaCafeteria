@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Usuario;
@@ -14,6 +15,7 @@ import lombok.AllArgsConstructor;
 public class UsuarioService {
 
     private final Usuariorepository repository; // 
+    private final PasswordEncoder passwordEncoder;
 
     // Obtener todos los usuarios
     public List<Usuario> selectAll() {
@@ -28,6 +30,8 @@ public class UsuarioService {
 
     // Registrar nuevo usuario
     public Usuario insertUsuario(Usuario usuario) {
+        String encriptado =passwordEncoder.encode(usuario.getContrasena());
+        usuario.setContrasena(encriptado);
         return repository.save(usuario);
     }
 
