@@ -51,14 +51,14 @@ public class UsuarioController {
     }
 
     
-    @GetMapping("/publico")
-    public String paginaPublica() {
-        return "Pagina publica";
-    }
+    // @GetMapping("/publico")
+    // public String paginaPublica() {
+    //     return "Pagina publica";
+    // }
 
-    @GetMapping("/privado")
-    public String paginaPrivada() {
-        return "Hola ingresastes a la pagina privada";
-    }
+    // @GetMapping("/privado")
+    // public String paginaPrivada() {
+    //     return "Hola ingresastes a la pagina privada";
+    // }
 
 }
