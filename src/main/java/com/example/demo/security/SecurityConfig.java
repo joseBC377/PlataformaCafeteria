@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**","/api/usuario/insertar","/api/contactenos/insertar").permitAll() // Ingresar sin token
+                        .requestMatchers("/api/v1/auth/**","/api/usuario/insertar","/api/contactenos/insertar","api/productos/lista","api/categoria/lista","api/subcategoria/lista").permitAll() // Ingresar sin token
                         .requestMatchers("/uploads/**").permitAll()   // Ingresar sin token
                         .requestMatchers("/api/usuario/**").hasAnyAuthority("ADMIN","CLIENTE")
                         //.requestMatchers("/api/usuario/publico", "/api/usuario/**").hasAuthority("CLIENT")
