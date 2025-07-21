@@ -58,7 +58,12 @@ public class SecurityConfig {
     UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(
-                Arrays.asList("http://127.0.0.1:3000", "http://localhost:4200", "http://localhost:5173"));
+                Arrays.asList(
+                    "http://127.0.0.1:3000",
+                    "http://localhost:4200",
+                    "http://localhost:5173",
+                    "https://plataformacafeteriafront.onrender.com" // ¡HE AÑADIDO ESTA LÍNEA!
+                ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
