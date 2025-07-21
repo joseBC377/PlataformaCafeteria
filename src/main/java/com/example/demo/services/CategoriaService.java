@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Categoria;
 import com.example.demo.repositories.CategoriaRepository;
-
+import org.springframework.data.domain.Sort;
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
 public class CategoriaService {
-     private final CategoriaRepository repository;
+    private final CategoriaRepository repository;
 
     public List<Categoria> selectAll() {
-        return repository.findAll();
+        return repository.findAll(Sort.by("id").ascending());
     }
 
     public Categoria selectId(Integer id) {

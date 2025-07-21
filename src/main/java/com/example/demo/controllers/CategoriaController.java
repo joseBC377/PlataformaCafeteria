@@ -25,7 +25,7 @@ public class CategoriaController {
     private final CategoriaService service;
     // Obtener todos las categorias
     @GetMapping("lista")
-    public List<Categoria> selectAllUsers() {
+    public List<Categoria> selectAll() {
         return service.selectAll();
     }
 

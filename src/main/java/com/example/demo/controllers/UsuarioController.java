@@ -1,13 +1,11 @@
 package com.example.demo.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.entities.Usuario;
 import com.example.demo.services.UsuarioService;
 
 import lombok.AllArgsConstructor;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.http.MediaType;
@@ -48,8 +46,23 @@ public class UsuarioController {
 
     // Eliminar un usuario
     @DeleteMapping("eliminar/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         service.deleteUsuario(id);
-        return ResponseEntity.ok("Usuario eliminado correctamente. ID: " + id);
+        return ResponseEntity.ok().body(new HashMap<String, Object>(){{
+            put("message", "Usuario eliminado correctamente");
+            put("id", id);
+        }});
     }
+
+    
+    // @GetMapping("/publico")
+    // public String paginaPublica() {
+    //     return "Pagina publica";
+    // }
+
+    // @GetMapping("/privado")
+    // public String paginaPrivada() {
+    //     return "Hola ingresastes a la pagina privada";
+    // }
+
 }

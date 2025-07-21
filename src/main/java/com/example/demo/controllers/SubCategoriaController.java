@@ -28,7 +28,7 @@ public class SubCategoriaController {
     
      // Obtener todos las subcategorias
     @GetMapping("lista")
-    public List<SubCategoria> selectAllUsers() {
+    public List<SubCategoria> selectAll() {
         return service.selectAll();
     }
 
